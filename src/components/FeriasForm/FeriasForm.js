@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Container, Form, Row, Col } from "react-bootstrap";
 
 // pega a informação do FeriasTable por props
 function FeriasForm(props) {
@@ -78,9 +78,10 @@ function FeriasForm(props) {
   };
 
   return (
+    <Container>
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Colaborador(a)</Form.Label>
+        <Form.Label><strong>Colaborador(a)</strong></Form.Label>
         <select
           class="form-select"
           aria-label="Default select example"
@@ -93,6 +94,9 @@ function FeriasForm(props) {
           <option value="Leandro">Leandro</option>
           <option value="Haline">Haline</option>
           <option value="Rafael">Rafael</option>
+          <option value="Fernanda">Fernanda</option>
+          <option value="Laércio">Laércio</option>
+          <option value="Daniela">Daniela</option>
         </select>
       </Form.Group>
       {/* <Form.Group className="mb-3" controlId="formBasicAuthor">
@@ -111,7 +115,8 @@ function FeriasForm(props) {
           <option value="3º">3º</option>
         </select>
       </Form.Group> */}      
-      <Form.Group className="mb-3" controlId="formBasicPassword">
+         <Row>
+        <Col><Form.Group className="mb-3" controlId="formBasicPassword">   
       <div><strong>1ª Parcela</strong></div>
         <Form.Label>Início</Form.Label>
         <Form.Control
@@ -129,8 +134,8 @@ function FeriasForm(props) {
           value={dias1}
           onChange={handleDias1Input}
         />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicPassword">
+      </Form.Group></Col>
+        <Col><Form.Group className="mb-3" controlId="formBasicPassword">
       <div><strong>2ª Parcela</strong></div>
         <Form.Label>Início</Form.Label>
         <Form.Control
@@ -148,8 +153,8 @@ function FeriasForm(props) {
           value={dias2}
           onChange={handleDias2Input}
         />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicPassword">
+      </Form.Group></Col>
+        <Col><Form.Group className="mb-3" controlId="formBasicPassword">
       <div><strong>3ª Parcela</strong></div>
         <Form.Label>Início</Form.Label>
         <Form.Control
@@ -167,11 +172,16 @@ function FeriasForm(props) {
           value={dias3}
           onChange={handleDias3Input}
         />
-      </Form.Group>
+      </Form.Group></Col>
+        </Row>
+      
+      
+      
       <Button variant="primary" type="submit">
         Agendar
       </Button>      
     </Form>
+    </Container>
   );
 }
 

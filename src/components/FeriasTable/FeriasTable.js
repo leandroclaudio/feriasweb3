@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Button, Form, Col, Container, Row } from "react-bootstrap";
 import FeriasForm from "../FeriasForm/FeriasForm";
 import Table from "react-bootstrap/Table";
+import moment from "moment/moment";
+
 
 function FeriasCard() {
   const [feriass, setFeriass] = useState([]);
@@ -22,9 +24,12 @@ function FeriasCard() {
     setFeriass(newFeriass);
   };
 
+
+
   // renderizar todos os itens da lista
   const renderFeriass = feriass.map((ferias, index) => {
     return (
+      <Container>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -61,7 +66,8 @@ function FeriasCard() {
         <Button variant="danger" onClick={() => deleteFerias(index)}>
           Excluir
         </Button>
-      </Table>     
+      </Table>
+      </Container>     
     );
   });
 
